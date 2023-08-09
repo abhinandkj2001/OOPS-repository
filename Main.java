@@ -1,43 +1,44 @@
-// Interface defining a contract for playing musical instruments
-interface Instrument {
-    void play();
-    void tune();
-}
-
-// Concrete classes implementing the Instrument interface
-class Guitar implements Instrument {
-    @Override
-    public void play() {
-        System.out.println("Playing the guitar");
+// Parent class (superclass)
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle is starting.");
     }
 
-    @Override
-    public void tune() {
-        System.out.println("Tuning the guitar");
+    void stop() {
+        System.out.println("Vehicle is stopping.");
     }
 }
 
-class Flute implements Instrument {
-    @Override
-    public void play() {
-        System.out.println("Playing the flute");
+// Child class (subclass) inheriting from Vehicle
+class Car extends Vehicle {
+    void honk() {
+        System.out.println("Car is honking.");
     }
+}
 
-    @Override
-    public void tune() {
-        System.out.println("Tuning the flute");
+// Another child class (subclass) inheriting from Vehicle
+class Bicycle extends Vehicle {
+    void ringBell() {
+        System.out.println("Bicycle is ringing the bell.");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        Instrument guitar = new Guitar();
-        Instrument flute = new Flute();
+        // Create a Car object
+        Car myCar = new Car();
 
-        guitar.tune();
-        guitar.play();
+        // Call methods from the parent and child classes
+        myCar.start();  // Inherited from Vehicle class
+        myCar.honk();   // Defined in Car class
+        myCar.stop();   // Inherited from Vehicle class
 
-        flute.tune();
-        flute.play();
+        // Create a Bicycle object
+        Bicycle myBicycle = new Bicycle();
+
+        // Call methods from the parent and child classes
+        myBicycle.start();    // Inherited from Vehicle class
+        myBicycle.ringBell(); // Defined in Bicycle class
+        myBicycle.stop();     // Inherited from Vehicle class
     }
 }
